@@ -1,8 +1,12 @@
 package cn.tsyh.arrow.user.facade.service;
 
+import cn.tsyh.arrow.user.facade.model.UserModel;
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 /**
  * @author tsy
@@ -12,5 +16,5 @@ import javax.ws.rs.core.MediaType;
 @Consumes({ MediaType.APPLICATION_JSON })
 @Produces({ MediaType.APPLICATION_JSON })
 public interface UserServiceFacade {
-    public void sayHello();
+    public UserModel sayHello();
 }

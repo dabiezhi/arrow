@@ -1,5 +1,6 @@
 package cn.tsyh.arrow.web.controller;
 
+import cn.tsyh.arrow.user.facade.model.UserModel;
 import cn.tsyh.arrow.user.facade.service.UserServiceFacade;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Controller;
@@ -11,12 +12,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Description
  * @date 15:18 2017/7/18
  */
+@Controller("userController")
+@RequestMapping("/user")
 public class UserController {
 
-    @Reference(interfaceClass = cn.tsyh.arrow.user.facade.service.UserServiceFacade.class,check = false)
+    @Reference(interfaceClass = cn.tsyh.arrow.user.facade.service.UserServiceFacade.class,
+            check = false)
     private UserServiceFacade userServiceFacade;
 
-    public void sayHel(String[] args){
-        userServiceFacade.sayHello();
+    @RequestMapping(value = "/userList")
+    @ResponseBody
+    public UserModel sayHel() {
+        UserModel u = userServiceFacade.sayHello();
+        return u;
     }
 }

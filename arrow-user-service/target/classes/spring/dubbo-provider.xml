@@ -6,7 +6,7 @@
             http://code.alibabatech.com/schema/dubbo
             http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="south-service-user" owner="ARROW"
+    <dubbo:application name="arrow-service-user" owner="ARROW"
                        organization="TSYH"/>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
@@ -19,4 +19,7 @@
                     threadpool="fixed" threads="200"/>
     <!-- 配置监控的方式 -->
     <!-- <dubbo:monitor protocol="registry" /> -->
+    <dubbo:service
+            interface="cn.tsyh.arrow.user.facade.service.UserServiceFacade"
+            ref="userServiceFacade" />
 </beans>
